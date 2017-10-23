@@ -1,12 +1,10 @@
 @import "bootstrap";
 
-html {
-  background-color: #FFFFFF;
+.header {
+  padding: 1em;
+  background: linear-gradient(lightgrey, white);
 }
 
-body {
-  background-color: #FFFFFF;
-}
 
 .card {
   margin-bottom: 2em;

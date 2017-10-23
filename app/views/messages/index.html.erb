@@ -11,7 +11,7 @@
         <div class="offset-md-4 col-md-8">
           <div class="card card-body bg-light">
             <p><%= message.content %></p>
-            <span class="quiet"><small><%= message.created_at %></small></span>
+            <span class="quiet"><small><%= message.created_at.to_date %></small></span>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@
         <div class="col-md-8">
           <div class="card card-body">
             <p><%= message.content %></p>
-            <span class="quiet"><small><%= message.created_at %></small></span> 
+            <span class="quiet"><small><%= message.created_at.to_date %></small></span> 
           </div>
         </div>
       </div>
