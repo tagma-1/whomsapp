@@ -15,8 +15,9 @@
     <%= form.label :user2_id, 'Select Contact:' %>
     <%= form.collection_select :user2_id, User.where.not(id: current_user.id), :id, :name, id: :conversation_user2_id %>
   </div>
-
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Start Conversation!', class: "btn btn-primary" %>
   </div>
+  <br>
 <% end %>

@@ -11,12 +11,16 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :content, 'Enter your message:' %>
-    <%= form.text_area :content, id: :message_content %>
+  <div class="form-group">
+    <div class="control-label col-md-4">
+      <%= form.label :content, 'Enter your message:' %>
+    </div>
+    <div class="col-md-8">
+      <%= form.text_area :content, rows: 10, class: "form-control", placeholder: "Enter your message.", id: :message_content %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit 'Send' %>
+  
+  <div class="form-group">
+    <%= form.submit 'Send', class: "btn btn-primary" %>
   </div>
 <% end %>
