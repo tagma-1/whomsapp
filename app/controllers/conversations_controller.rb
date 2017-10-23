@@ -1,4 +1,5 @@
 class ConversationsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_conversation, only: [:show, :edit, :update, :destroy]
 
   # GET /conversations
@@ -25,6 +26,7 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
     @conversation = Conversation.new(conversation_params)
+    @conversation.user1 = current_user
 
     respond_to do |format|
       if @conversation.save
@@ -69,6 +71,6 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:user1_id, :user2_id)
+      params.require(:conversation).permit(:user2_id)
     end
 end
