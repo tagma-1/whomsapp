@@ -1,31 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Messages</h1>
+<h1>Chat with <%= current_user == @conversation.user1 ? 
+            @conversation.user2.name : @conversation.user1.name%></h1>
+<hr />
+<br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Conversation</th>
-      <th>Sender</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @messages.each do |message| %>
-      <tr>
-        <td><%= message.conversation %></td>
-        <td><%= message.sender %></td>
-        <td><%= message.content %></td>
-        <td><%= link_to 'Show', [@conversation, message] %></td>
-        <td><%= link_to 'Edit', edit_conversation_message_path(@conversation, message) %></td>
-        <td><%= link_to 'Destroy', [@conversation, message], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  <% @messages.each do |message| %>
+    <% if current_user.id == message.sender_id %>
+      <div class="row">
+        <div class="offset-md-4 col-md-8">
+          <div class="card card-body bg-light">
+            <p><%= message.content %></p>
+            <span class="quiet"><small><%= message.created_at %></small></span>
+          </div>
+        </div>
+      </div>
+    <% else %>
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card card-body">
+            <p><%= message.content %></p>
+            <span class="quiet"><small><%= message.created_at %></small></span> 
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+
+      
+<br>
+
+<%= render 'form', message: @new_message %>
 
 <br>
 
-<%= link_to 'New Message', new_conversation_message_path(@conversation) %>
+<%= link_to 'Back to Conversations', conversations_path %>

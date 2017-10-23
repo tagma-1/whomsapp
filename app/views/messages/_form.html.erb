@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :content %>
+    <%= form.label :content, 'Enter your message:' %>
     <%= form.text_area :content, id: :message_content %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Send' %>
   </div>
 <% end %>

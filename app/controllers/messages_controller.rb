@@ -6,7 +6,8 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.where(conversation_id: params[:conversation_id])
+    @new_message = Message.new
   end
 
   # GET /messages/1

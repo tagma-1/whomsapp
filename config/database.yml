@@ -21,10 +21,11 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   
-  username: <%= ENV['USERNAME'] %>
-  password: <%= ENV['PASSWORD'] %>
-  # host:     <%= ENV['IP'] %>
-
+  template: template0
+  username: ubuntu
+  password: password
+  
+  
 development:
   <<: *default
   database: whomsapp_development
